@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function SavedList(props) {
+  console.log(props.list)
   return (
     <div className="saved-list">
       <h3>Saved Movies:</h3>

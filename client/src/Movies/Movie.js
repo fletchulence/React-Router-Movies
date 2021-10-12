@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 export default function Movie(props) {
+  const { saved, setSaved } = props;
   const [movie, setMovie] = useState(null);
 
 const { id } = useParams();
@@ -25,7 +26,10 @@ const { id } = useParams();
   }, [id]);
 
   // Uncomment this only when you have moved on to the stretch goals
-  // const saveMovie = evt => { }
+  const saveMovie = evt => { 
+      setSaved(evt)
+  }
+
 
   if (!movie) {
     return <div>Loading movie information...</div>;
@@ -51,7 +55,7 @@ const { id } = useParams();
           </div>
         ))}
       </div>
-      <div className="save-button">Save</div>
+      <div className="save-button" onClick={() => {saveMovie(movie)}}>Save</div>
     </div>
   );
 }
